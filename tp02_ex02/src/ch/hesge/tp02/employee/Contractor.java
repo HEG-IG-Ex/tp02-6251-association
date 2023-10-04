@@ -4,8 +4,12 @@ public class Contractor extends TeachingEmployee{
     private double hoursTaught;
     private double hourlyRate;
 
-    public Contractor(String firstname, String lastname, String address, int experience, double hoursTaught, double hourlyRate) {
-        super(firstname, lastname, address, experience);
+    public Contractor(String firstname, String lastname, String address, UniversityDegree ud,  int experience) {
+        super(firstname, lastname, address, ud, experience);
+    }
+
+    public Contractor(String firstname, String lastname, String address, UniversityDegree ud,  int experience, double hoursTaught, double hourlyRate) {
+        super(firstname, lastname, address, ud, experience);
         this.hoursTaught = hoursTaught;
         this.hourlyRate = hourlyRate;
     }
@@ -24,5 +28,10 @@ public class Contractor extends TeachingEmployee{
 
     public void setHourlyRate(double hourlyRate) {
         this.hourlyRate = hourlyRate;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return hoursTaught * hourlyRate;
     }
 }
